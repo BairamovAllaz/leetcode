@@ -5,19 +5,15 @@
  * You must implement a solution with a linear runtime complexity and use only constant extra space.
  */
 var singleNumber = function(nums) {
-    let array = [];
+    if(nums.length == 1) return nums[0];
     for(var i = 0;i < nums.length;++i)
     {
-        if(array.includes(nums[i]))
+        if(nums.indexOf(nums[i]) === nums.lastIndexOf(nums[i]))
         {
-            array.push(nums[i]);
-        }else{
-            array.unshift(nums[i]);
+            return nums[i];
         }
     }
-    return array[0];
 };
-
 const nums = [2,2,1];
 const nums2 = [4,1,2,1,2];
-console.log(singleNumber(nums2))
+console.log(singleNumber(nums))
